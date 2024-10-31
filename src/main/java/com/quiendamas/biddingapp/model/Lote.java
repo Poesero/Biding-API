@@ -10,12 +10,12 @@ public class Lote {
     private String name;
     private String owner;
     private String description;
-    private Float startingValue;
+    private Double startingValue;
 
     public Lote(){
     }
 
-    public Lote(String name, Long id, String description, String owner, Float startingValue) {
+    public Lote(String name, Long id, String description, String owner, Double startingValue) {
         this.name = name;
         this.id = id;
         this.description = description;
