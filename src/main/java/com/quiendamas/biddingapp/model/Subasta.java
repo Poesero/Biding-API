@@ -8,7 +8,7 @@ public class Subasta {
 
     private Long id;
     private String name;
-    private Usuario userName;
+    private String userName;
     private String description;
     private Double startingBid;
     private Double duration;
@@ -17,7 +17,7 @@ public class Subasta {
     public Subasta(){
     }
 
-    public Subasta(Long id, String name, Usuario userName, String description, Double startingBid, Double duration, String highestBidder) {
+    public Subasta(Long id, String name, String userName, String description, Double startingBid, Double duration, String highestBidder) {
         this.id = id;
         this.name = name;
         this.userName = userName;

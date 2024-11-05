@@ -7,13 +7,13 @@ import lombok.Setter;
 public class Puja {
 
     private Long id;
-    private Usuario userName;
+    private String userName;
     private Double bidAmount;
 
     public Puja(){
     }
 
-    public Puja(Long id, Usuario userName, Double bidAmount) {
+    public Puja(Long id, String userName, Double bidAmount) {
         this.id = id;
         this.userName = userName;
         this.bidAmount = bidAmount;
