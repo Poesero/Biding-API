@@ -15,6 +15,6 @@ public class UsuarioController {
 
     @PostMapping("/usuario")
     public void newUsuario(@RequestBody Usuario user){
-        System.out.println(("Datos del usuario:  -Nombre:" + user.getUserName() + "-Mail:" + user.getMail() ));
+        System.out.println(("Datos del usuario:  |-Nombre: " + user.getUserName() + " |-Mail: " + user.getMail() ));
     }
 }
