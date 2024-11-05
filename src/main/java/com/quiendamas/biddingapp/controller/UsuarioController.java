@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UsuarioController {
 
-    @Autowired
-    UsuarioRepository repository;
+//    @Autowired
+//    UsuarioRepository repository;
 
     @PostMapping("/usuario")
     public void newUsuario(@RequestBody Usuario user){

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PujaController {
 
-    @Autowired
-    PujaRepository repository;
+//    @Autowired
+//    PujaRepository repository;
 
     @PostMapping("/puja")
     public void newPuja(@RequestBody Puja puja){

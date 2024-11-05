@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SubastaController {
 
-    @Autowired
-    SubastaRepository repository;
+//    @Autowired
+//    SubastaRepository repository;
 
     @PostMapping("/subasta")
     public void newSubasta(@RequestBody Subasta sub){
