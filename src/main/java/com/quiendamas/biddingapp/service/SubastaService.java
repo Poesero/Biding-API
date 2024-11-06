@@ -1,7 +1,7 @@
 package com.quiendamas.biddingapp.service;
 
 import com.quiendamas.biddingapp.model.Subasta;
-import com.quiendamas.biddingapp.repository.SubastaRepository;
+import com.quiendamas.biddingapp.repository.ISubastaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class SubastaService implements ISubastaService {
 
     @Autowired
-    private SubastaRepository subastaRepository;
+    private ISubastaRepository subastaRepository;
 
     @Override
     public void crearSubasta(Subasta bid) {

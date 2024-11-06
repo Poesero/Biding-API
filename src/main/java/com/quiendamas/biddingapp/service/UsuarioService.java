@@ -1,7 +1,7 @@
 package com.quiendamas.biddingapp.service;
 
 import com.quiendamas.biddingapp.model.Usuario;
-import com.quiendamas.biddingapp.repository.UsuarioRepository;
+import com.quiendamas.biddingapp.repository.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,15 +11,27 @@ import java.util.List;
 public class UsuarioService implements IUsuarioService{
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private IUsuarioRepository usuarioRepository;
 
     @Override
-    public void crearUsuario(Usuario user) {
-
+    public void creatUsuario(Usuario user) {
+        usuarioRepository.save(user);
     }
 
     @Override
-    public List<Usuario> traerUsuarios() {
-        return List.of();
+    public void deleteUsuario(Long id) {
+        usuarioRepository.deleteById(id);
+    }
+
+    @Override
+    public Usuario readUsuario(Long id) {
+        Usuario user = usuarioRepository.findById(id).orElse(null);
+        return user;
+    }
+
+    @Override
+    public List<Usuario> getUsuarios() {
+        List<Usuario> usuarioList = usuarioRepository.findAll();
+        return usuarioList;
     }
 }

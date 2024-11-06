@@ -1,8 +1,6 @@
 package com.quiendamas.biddingapp.controller;
 
 import com.quiendamas.biddingapp.model.Subasta;
-import com.quiendamas.biddingapp.repository.SubastaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

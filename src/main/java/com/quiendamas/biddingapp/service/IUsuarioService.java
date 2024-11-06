@@ -6,6 +6,11 @@ import java.util.List;
 
 public interface IUsuarioService {
 
-    public void crearUsuario (Usuario user);
-    public List<Usuario> traerUsuarios();
+    public void creatUsuario (Usuario user);
+
+    public void deleteUsuario (Long id);
+
+    public Usuario readUsuario (Long id);
+
+    public List<Usuario> getUsuarios();
 }
