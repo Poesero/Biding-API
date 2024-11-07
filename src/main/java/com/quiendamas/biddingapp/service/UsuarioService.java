@@ -25,13 +25,22 @@ public class UsuarioService implements IUsuarioService{
 
     @Override
     public Usuario readUsuario(Long id) {
-        Usuario user = usuarioRepository.findById(id).orElse(null);
-        return user;
+        return usuarioRepository.findById(id).orElse(null);
     }
 
     @Override
     public List<Usuario> getUsuarios() {
         List<Usuario> usuarioList = usuarioRepository.findAll();
         return usuarioList;
+    }
+
+    @Override
+    public void editUsuario(Long id_original, Long idNew, String NewUserName, String NewMail) {
+        Usuario user = this.readUsuario(id_original);
+        user.setId(idNew);
+        user.setUserName(NewUserName);
+        user.setMail(NewMail);
+
+        this.creatUsuario(user);
     }
 }

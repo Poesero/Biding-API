@@ -13,4 +13,8 @@ public interface IUsuarioService {
     public Usuario readUsuario (Long id);
 
     public List<Usuario> getUsuarios();
+
+
+    public void editUsuario (Long id_original, Long idNew, String NewUserName, String NewMail);
+
 }
