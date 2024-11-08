@@ -7,9 +7,9 @@ import java.util.List;
 public interface IPujaService {
 
 
-    void createPuja(Puja puja);
+    public void createPuja(Puja puja);
 
-    void deletePuja(Long id);
+    public void deletePuja(Long id);
 
     public Puja getPuja(Long id);
 }

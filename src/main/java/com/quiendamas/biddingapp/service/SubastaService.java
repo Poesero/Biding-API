@@ -15,7 +15,7 @@ public class SubastaService implements ISubastaService {
     private ISubastaRepository subastaRepository;
 
     @Override
-    public void creatSubasta(Subasta sub) {
+    public void createSubasta(Subasta sub) {
         subastaRepository.save(sub);
     }
 
@@ -26,7 +26,7 @@ public class SubastaService implements ISubastaService {
     }
 
     @Override
-    public Subasta readSubasta(Long id) {
+    public Subasta getSubasta(Long id) {
         return subastaRepository.findById(id).orElse(null);
     }
 

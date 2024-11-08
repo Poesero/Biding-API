@@ -15,12 +15,12 @@ public class PujaService implements IPujaService{
 
     @Override
     public void createPuja(Puja puja) {
-
+        pujaRepository.save(puja);
     }
 
     @Override
     public void deletePuja(Long id) {
-        pujaRepository.deletePuja(id);
+        pujaRepository.deleteById(id);
     }
 
     @Override

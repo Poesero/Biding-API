@@ -1,7 +1,6 @@
 package com.quiendamas.biddingapp.controller;
 
 import com.quiendamas.biddingapp.model.Subasta;
-import com.quiendamas.biddingapp.model.Usuario;
 import com.quiendamas.biddingapp.service.ISubastaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +15,7 @@ public class SubastaController {
 
     @PostMapping("/subasta/create")
     public String creatSubasta(@RequestBody Subasta sub){
-        interSubasta.creatSubasta(sub);
+        interSubasta.createSubasta(sub);
         return ("Subasta cargada con datos: -Nombre:" + sub.getName()
                 + " -Usuario:" + sub.getUserName()
                 + " -Descripción:" + sub.getDescription()
@@ -30,8 +29,8 @@ public class SubastaController {
     }
 
     @GetMapping("/subasta/get/{id}")
-    public Subasta readSubasta(@PathVariable Long id) {
-        return interSubasta.readSubasta(id);
+    public Subasta getSubasta(@PathVariable Long id) {
+        return interSubasta.getSubasta(id);
     }
 
     @DeleteMapping("/subasta/delete/{id}")
