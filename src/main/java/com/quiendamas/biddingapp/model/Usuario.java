@@ -23,8 +23,8 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Subasta> subastas;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-
     private List<Puja> pujas;
     public Usuario(){
     }

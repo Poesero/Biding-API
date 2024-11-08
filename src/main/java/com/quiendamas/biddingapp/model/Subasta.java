@@ -1,6 +1,7 @@
 package com.quiendamas.biddingapp.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,6 +24,7 @@ public class Subasta {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    @JsonManagedReference
     @OneToOne
     private Puja highestBidder;
 

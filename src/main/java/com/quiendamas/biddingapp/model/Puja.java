@@ -1,5 +1,6 @@
 package com.quiendamas.biddingapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,12 +15,14 @@ public class Puja {
     private String userName;
     private Double bidAmount;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-
+    @JsonBackReference
     @ManyToOne
+    @JoinColumn(name = "subasta_id")
     private Subasta subasta;
 
     public Puja() {

@@ -1,7 +1,6 @@
 package com.quiendamas.biddingapp.controller;
 
 import com.quiendamas.biddingapp.model.Puja;
-import com.quiendamas.biddingapp.repository.IPujaRepository;
 import com.quiendamas.biddingapp.service.IPujaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
