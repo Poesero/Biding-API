@@ -1,11 +1,11 @@
 package com.quiendamas.biddingapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import jakarta.persistence.Id;
+
+import java.util.List;
 
 @Getter @Setter
 @Entity
@@ -16,15 +16,24 @@ public class Usuario {
     private Long id;
     private String userName;
     private String mail;
+    private String password;
     private Double funds;
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Subasta> subastas;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+
+    private List<Puja> pujas;
     public Usuario(){
     }
 
-    public Usuario(Long id, String userName, String mail, Double funds) {
+    public Usuario(Long id, String userName, String mail, String password, Double funds) {
         this.id = id;
         this.userName = userName;
         this.mail = mail;
+        this.password = password;
         this.funds = funds;
     }
 

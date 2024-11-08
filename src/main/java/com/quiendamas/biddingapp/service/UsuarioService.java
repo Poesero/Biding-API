@@ -14,7 +14,7 @@ public class UsuarioService implements IUsuarioService{
     private IUsuarioRepository usuarioRepository;
 
     @Override
-    public void creatUsuario(Usuario user) {
+    public void createUsuario(Usuario user) {
         usuarioRepository.save(user);
     }
 
@@ -35,12 +35,17 @@ public class UsuarioService implements IUsuarioService{
     }
 
     @Override
-    public void editUsuario(Long id_original, Long idNew, String NewUserName, String NewMail) {
+    public void editUsuario(Long id_original, String NewUserName, String NewMail, String NewPassword) {
         Usuario user = this.readUsuario(id_original);
-        user.setId(idNew);
-        user.setUserName(NewUserName);
-        user.setMail(NewMail);
-
-        this.creatUsuario(user);
+        if (NewUserName != null && !NewUserName.isEmpty()) {
+            user.setUserName(NewUserName);
+        }
+        if (NewMail != null && !NewMail.isEmpty()) {
+            user.setMail(NewMail);
+        }
+        if (NewPassword != null && !NewPassword.isEmpty()) {
+            user.setPassword(NewPassword);
+        }
+        this.createUsuario(user);
     }
 }

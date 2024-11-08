@@ -1,12 +1,8 @@
 package com.quiendamas.biddingapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 
 @Getter @Setter
 @Entity
@@ -18,12 +14,22 @@ public class Puja {
     private String userName;
     private Double bidAmount;
 
-    public Puja(){
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+
+    @ManyToOne
+    private Subasta subasta;
+
+    public Puja() {
     }
 
-    public Puja(Long id, String userName, Double bidAmount) {
+    public Puja(Long id, String userName, Double bidAmount,Usuario usuario, Subasta subasta) {
         this.id = id;
         this.userName = userName;
         this.bidAmount = bidAmount;
+        this.usuario = usuario;
+        this.subasta = subasta;
     }
 }

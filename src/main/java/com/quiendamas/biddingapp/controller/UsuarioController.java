@@ -14,9 +14,9 @@ public class UsuarioController {
     private IUsuarioService interUsuario;
 
     @PostMapping("/usuario/create")
-    public String creatUsuario(@RequestBody Usuario user){
+    public String createUsuario(@RequestBody Usuario user){
         System.out.println(("Datos del usuario:  |-Nombre: " + user.getUserName() + " |-Mail: " + user.getMail() ));
-        interUsuario.creatUsuario(user);
+        interUsuario.createUsuario(user);
 
         return "Usuario creado con exito";
     }
@@ -40,13 +40,27 @@ public class UsuarioController {
 
     @PutMapping("/usuario/edit/{id_original}")
     public Usuario editUsuario(@PathVariable Long id_original,
-        @RequestParam(required = false,name = "id") Long idNew,
         @RequestParam(required = false,name = "userName") String NewUserName,
-        @RequestParam(required = false,name = "mail" ) String NewMail) {
-
-        interUsuario.editUsuario(id_original, idNew, NewUserName, NewMail);
+        @RequestParam(required = false,name = "mail" ) String NewMail,
+        @RequestParam(required = false,name = "password" ) String NewPassword){
 
         Usuario user = interUsuario.readUsuario(id_original);
+
+        if (NewUserName != null) {
+            user.setUserName(NewUserName);
+        }
+        if (NewMail != null) {
+            user.setMail(NewMail);
+        }
+        if (NewPassword != null) {
+            user.setPassword(NewPassword);
+        }
+        interUsuario.editUsuario(id_original,
+                NewUserName != null ? NewUserName : user.getUserName(),
+                NewMail != null ? NewMail : user.getMail(),
+                NewPassword != null? NewPassword: user.getPassword());
+
+
 
         return user;
     }

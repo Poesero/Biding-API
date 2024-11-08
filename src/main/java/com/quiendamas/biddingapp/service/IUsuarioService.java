@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IUsuarioService {
 
-    public void creatUsuario (Usuario user);
+    public void createUsuario(Usuario user);
 
     public void deleteUsuario (Long id);
 
@@ -15,6 +15,6 @@ public interface IUsuarioService {
     public List<Usuario> getUsuarios();
 
 
-    public void editUsuario (Long id_original, Long idNew, String NewUserName, String NewMail);
+    public void editUsuario (Long id_original, String NewUserName, String NewMail, String NewPassword);
 
 }

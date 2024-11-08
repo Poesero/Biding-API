@@ -1,9 +1,7 @@
 package com.quiendamas.biddingapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,18 +17,26 @@ public class Subasta {
     private String description;
     private Double startingBid;
     private Double duration;
-    private String highestBidder;
 
-    public Subasta(){
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    @OneToOne
+    private Puja highestBidder;
+
+    public Subasta() {
     }
 
-    public Subasta(Long id, String name, String userName, String description, Double startingBid, Double duration, String highestBidder) {
+    public Subasta(Long id, String name, String userName, String description, Double startingBid, Double duration,Usuario usuario, Puja highestBidder) {
         this.id = id;
         this.name = name;
         this.userName = userName;
         this.description = description;
         this.startingBid = startingBid;
         this.duration = duration;
+        this.usuario = usuario;
         this.highestBidder = highestBidder;
     }
 }

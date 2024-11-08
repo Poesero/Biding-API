@@ -14,12 +14,16 @@ public class PujaService implements IPujaService{
     private IPujaRepository pujaRepository;
 
     @Override
-    public void crearPuja(Puja puja) {
+    public void createPuja(Puja puja) {
 
     }
 
     @Override
-    public List<Puja> traerPujas() {
-        return List.of();
+    public void deletePuja(Long id) {
+        pujaRepository.deletePuja(id);
     }
+
+    @Override
+    public Puja getPuja(Long id){ return pujaRepository.findById(id).orElse(null);}
+
 }

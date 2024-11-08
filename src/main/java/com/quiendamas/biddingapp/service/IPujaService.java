@@ -6,6 +6,10 @@ import java.util.List;
 
 public interface IPujaService {
 
-    public void crearPuja (Puja puja);
-    public List<Puja> traerPujas();
+
+    void createPuja(Puja puja);
+
+    void deletePuja(Long id);
+
+    public Puja getPuja(Long id);
 }
